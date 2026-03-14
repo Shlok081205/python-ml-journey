@@ -8,3 +8,4 @@ dist/
 build/
 GIT_GUIDE.md
 01-pandas-eda/pandas_pb.pdf
+sample_data/
