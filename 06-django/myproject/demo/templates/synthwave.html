@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synthwave Dashboard</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #0d0115;
+      background-image: linear-gradient(
+        to bottom,
+        #0d0115 0%,
+        #1a022d 50%,
+        #10011c 100%
+      );
+      color: #ff007f;
+      font-family: &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    "
+  >
+    <!-- Neon Grid Background Layer -->
+    <div
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image:
+          linear-gradient(transparent 98%, rgba(255, 0, 127, 0.15) 98%),
+          linear-gradient(90deg, transparent 98%, rgba(255, 0, 127, 0.15) 98%);
+        background-size: 40px 40px;
+        pointer-events: none;
+        z-index: 1;
+      "
+    ></div>
+
+    <!-- Header / Navigation -->
+    <header
+      style="
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 5%;
+        background: rgba(13, 1, 21, 0.8);
+        border-bottom: 2px solid #390099;
+        box-shadow: 0 0 15px rgba(57, 0, 153, 0.5);
+        backdrop-filter: blur(5px);
+      "
+    >
+      <div
+        style="
+          font-size: clamp(1.5rem, 4vw, 2.2rem);
+          font-weight: 900;
+          text-transform: uppercase;
+          tracking-spacing: 2px;
+          color: #00f0ff;
+          text-shadow:
+            0 0 10px #00f0ff,
+            0 0 20px #00f0ff;
+        "
+      >
+        Neon//Drive
+      </div>
+      <nav style="display: flex; gap: clamp(1rem, 3vw, 2rem)">
+        <a
+          href="#"
+          style="
+            color: #ff007f;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            text-shadow: 0 0 8px #ff007f;
+          "
+          >Core</a
+        >
+        <a
+          href="#"
+          style="
+            color: #00f0ff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            opacity: 0.8;
+          "
+          >Data</a
+        >
+        <a
+          href="#"
+          style="
+            color: #00f0ff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            opacity: 0.8;
+          "
+          >Sync</a
+        >
+      </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main
+      style="
+        position: relative;
+        z-index: 2;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: clamp(1.5rem, 5vw, 4rem) 5%;
+      "
+    >
+      <!-- Hero Section with Retro Sun -->
+      <section
+        style="
+          width: 100%;
+          max-width: 1200px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          margin-bottom: 4rem;
+        "
+      >
+        <!-- Synthwave Sun Graphic -->
+        <div
+          style="
+            position: relative;
+            width: clamp(150px, 30vw, 250px);
+            height: clamp(150px, 30vw, 250px);
+            background: linear-gradient(to bottom, #ff9e00 0%, #ff007f 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255, 0, 127, 0.6);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px 0;
+            box-sizing: border-box;
+          "
+        >
+          <!-- Sun Horizontal Grid Cutouts -->
+          <div style="width: 100%; height: 4px; background: #0d0115"></div>
+          <div style="width: 100%; height: 6px; background: #0d0115"></div>
+          <div style="width: 100%; height: 9px; background: #0d0115"></div>
+          <div style="width: 100%; height: 13px; background: #0d0115"></div>
+          <div style="width: 100%; height: 18px; background: #0d0115"></div>
+          <div style="width: 100%; height: 24px; background: #0d0115"></div>
+        </div>
+
+        <h1
+          style="
+            font-size: clamp(2rem, 6vw, 4.5rem);
+            margin: 0 0 1rem 0;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow:
+              0 0 10px #ff007f,
+              0 0 30px #ff007f,
+              0 0 50px #ff007f;
+            font-style: italic;
+            letter-spacing: 4px;
+          "
+        >
+          Grid Terminal
+        </h1>
+
+        <p
+          style="
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #00f0ff;
+            max-width: 600px;
+            margin: 0 0 2rem 0;
+            line-height: 1.6;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+          "
+        >
+          A fluid, fully responsive layout built for high-speed digital
+          exploration.
+        </p>
+      </section>
+
+      <!-- Dynamic Grid Content Blocks -->
+      <section
+        style="
+          width: 100%;
+          max-width: 1200px;
+          display: grid;
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(clamp(250px, 100%, 350px), 1fr)
+          );
+          gap: 2rem;
+          margin-bottom: 2rem;
+        "
+      >
+        <!-- Card 1 -->
+        <div
+          style="
+            background: rgba(26, 2, 45, 0.6);
+            border: 2px solid #ff007f;
+            box-shadow:
+              inset 0 0 15px rgba(255, 0, 127, 0.2),
+              0 0 15px rgba(255, 0, 127, 0.3);
+            padding: 2rem;
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+          "
+        >
+          <div
+            style="
+              color: #00f0ff;
+              font-weight: bold;
+              text-transform: uppercase;
+              font-size: 0.8rem;
+              letter-spacing: 2px;
+              margin-bottom: 0.5rem;
+              text-shadow: 0 0 5px #00f0ff;
+            "
+          >
+            System Status
+          </div>
+          <h3
+            style="
+              color: #fff;
+              margin: 0 0 1rem 0;
+              font-size: 1.5rem;
+              text-transform: uppercase;
+            "
+          >
+            Overdrive Active
+          </h3>
+          <p
+            style="
+              color: #ba99dd;
+              margin: 0;
+              line-height: 1.5;
+              font-size: 0.95rem;
+            "
+          >
+            Matrix parameters are running stable at maximum computational
+            performance limits.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          style="
+            background: rgba(26, 2, 45, 0.6);
+            border: 2px solid #00f0ff;
+            box-shadow:
+              inset 0 0 15px rgba(0, 240, 255, 0.2),
+              0 0 15px rgba(0, 240, 255, 0.3);
+            padding: 2rem;
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+          "
+        >
+          <div
+            style="
+              color: #ff007f;
+              font-weight: bold;
+              text-transform: uppercase;
+              font-size: 0.8rem;
+              letter-spacing: 2px;
+              margin-bottom: 0.5rem;
+              text-shadow: 0 0 5px #ff007f;
+            "
+          >
+            Data Stream
+          </div>
+          <h3
+            style="
+              color: #fff;
+              margin: 0 0 1rem 0;
+              font-size: 1.5rem;
+              text-transform: uppercase;
+            "
+          >
+            Vector Nodes
+          </h3>
+          <p
+            style="
+              color: #ba99dd;
+              margin: 0;
+              line-height: 1.5;
+              font-size: 0.95rem;
+            "
+          >
+            Fluid layout structures instantly snap into place across any
+            viewport dimension.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          style="
+            background: rgba(26, 2, 45, 0.6);
+            border: 2px solid #ff9e00;
+            box-shadow:
+              inset 0 0 15px rgba(255, 158, 0, 0.2),
+              0 0 15px rgba(255, 158, 0, 0.3);
+            padding: 2rem;
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+          "
+        >
+          <div
+            style="
+              color: #ff9e00;
+              font-weight: bold;
+              text-transform: uppercase;
+              font-size: 0.8rem;
+              letter-spacing: 2px;
+              margin-bottom: 0.5rem;
+              text-shadow: 0 0 5px #ff9e00;
+            "
+          >
+            Sync Rates
+          </div>
+          <h3
+            style="
+              color: #fff;
+              margin: 0 0 1rem 0;
+              font-size: 1.5rem;
+              text-transform: uppercase;
+            "
+          >
+            Frequency Shift
+          </h3>
+          <p
+            style="
+              color: #ba99dd;
+              margin: 0;
+              line-height: 1.5;
+              font-size: 0.95rem;
+            "
+          >
+            Cyberpunk hues match seamlessly with hardware-accelerated layouts.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Area -->
+    <footer
+      style="
+        position: relative;
+        z-index: 2;
+        margin-top: auto;
+        padding: 2rem 5%;
+        background: #06000a;
+        border-top: 2px solid #ff007f;
+        box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      "
+    >
+      <span style="font-size: 0.85rem; color: #ba99dd"
+        >&copy; 1984-2026 Outrun Systems Corp.</span
+      >
+      <span
+        style="
+          font-size: 0.85rem;
+          color: #ff9e00;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          text-shadow: 0 0 5px #ff9e00;
+        "
+        >Signal Stable</span
+      >
+    </footer>
+  </body>
+</html>
