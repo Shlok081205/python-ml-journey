@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock title %}
+
+{% block content %}
+    <h1 style="margin-bottom: 15px; color: #1a1a2e;">This is the Child Page</h1>
+    <p style="line-height: 1.6; margin-bottom: 10px;">
+        Django automatically pulls the minimal navbar and footer from your base configuration file.
+    </p>
+    <p style="line-height: 1.6; color: #666;">
+        Any markup written inside this content block will safely render inside the main container element.
+    </p>
+{% endblock content %}

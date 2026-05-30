@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}My Django Site{% endblock title %}</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f4f4f9;
+      color: #333;
+    "
+  >
+    <!-- MINIMAL NAVBAR -->
+    <header
+      style="
+        background-color: #1a1a2e;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      "
+    >
+      <nav
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 15px 20px;
+        "
+      >
+        <div style="font-size: 24px; font-weight: bold">
+          <a
+            href="{% url 'home' %}"
+            style="color: #ffffff; text-decoration: none"
+            >BrandName</a
+          >
+        </div>
+        <ul style="display: flex; list-style: none; margin: 0; padding: 0">
+          <li>
+            <a
+              href="{% url 'home' %}"
+              style="color: #e2e2e2; text-decoration: none; font-size: 16px"
+              >Home</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- CONTENT AREA -->
+    <main
+      style="
+        flex: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        width: 100%;
+      "
+    >
+      {% block content %} {% endblock content %}
+    </main>
+
+    <!-- MINIMAL FOOTER -->
+    <footer
+      style="
+        background-color: #161625;
+        color: #a0a0a0;
+        width: 100%;
+        padding: 20px 0;
+        margin-top: auto;
+        text-align: center;
+      "
+    >
+      <p style="margin: 0; font-size: 14px">
+        &copy; 2026 BrandName. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>

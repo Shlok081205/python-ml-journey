@@ -1,0 +1,23 @@
+python -m django startproject project_name
+
+cd project_name
+
+python manage.py startapp app_name
+
+settings.py -> register(INSTALLED APPS) > app_name
+
+mkdir app_name/templates (for html files) -> make html file -> make a function in views.py to use html files -> give path to urls.py
+
+python manage.py runserver
+
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+
+make models in models.py foloowing the specific syntax
+then make specific fields 
+then def__str__(self): return  app_name
+from .models import model then regiset it in admins .py 
+then make makemigrations
+migrate
