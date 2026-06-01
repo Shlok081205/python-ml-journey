@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Movie List</title>
+  </head>
+  <body
+    style="
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+    "
+  >
+    <nav style="margin-bottom: 20px">
+      <a href="{% url 'add_movie' %}">Add Movie</a> |
+      <a href="{% url 'movie_list' %}">View All Movies</a> |
+      <a href="{% url 'search_movies' %}">Search</a>
+    </nav>
+
+    <h2>Movie Database</h2>
+
+    <ul style="list-style-type: none; padding: 0">
+      {% for movie in movies %}
+      <li
+        style="
+          background: #f4f4f4;
+          margin-bottom: 10px;
+          padding: 15px;
+          border-radius: 5px;
+        "
+      >
+        <strong>{{ movie.name }}</strong>
+        <span
+          style="
+            float: right;
+            background: #f5c518;
+            padding: 2px 8px;
+            border-radius: 3px;
+          "
+        >
+          ⭐ {{ movie.rating }}
+        </span>
+      </li>
+      {% empty %}
+      <p>No movies added yet! Go add some.</p>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

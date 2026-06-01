@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Search Movies</title>
+  </head>
+  <body
+    style="
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+    "
+  >
+    <nav style="margin-bottom: 20px">
+      <a href="{% url 'add_movie' %}">Add Movie</a> |
+      <a href="{% url 'movie_list' %}">View All Movies</a> |
+      <a href="{% url 'search_movies' %}">Search</a>
+    </nav>
+
+    <h2>Search our Database</h2>
+
+    <form
+      method="GET"
+      action="{% url 'search_movies' %}"
+      style="margin-bottom: 30px"
+    >
+      <input
+        type="text"
+        name="q"
+        placeholder="Search for a movie..."
+        value="{{ query|default_if_none:'' }}"
+        style="width: 70%; padding: 8px"
+      />
+      <button
+        type="submit"
+        style="
+          padding: 9px 15px;
+          background: #3498db;
+          color: white;
+          border: none;
+          cursor: pointer;
+          font-weight: bold;
+        "
+      >
+        Search
+      </button>
+    </form>
+
+    {% if query %}
+    <h3>Results for "{{ query }}":</h3>
+
+    {% if movies %}
+    <ul style="list-style-type: none; padding: 0">
+      {% for movie in movies %}
+      <li
+        style="
+          background: #e8f4f8;
+          margin-bottom: 10px;
+          padding: 15px;
+          border-radius: 5px;
+        "
+      >
+        <strong>{{ movie.name }}</strong>
+        <span
+          style="
+            float: right;
+            background: #f5c518;
+            padding: 2px 8px;
+            border-radius: 3px;
+          "
+        >
+          ⭐ {{ movie.rating }}
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p style="color: red">No movies found matching that name.</p>
+    {% endif %} {% endif %}
+  </body>
+</html>

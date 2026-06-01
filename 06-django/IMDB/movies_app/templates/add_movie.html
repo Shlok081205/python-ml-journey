@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Add a Movie</title>
+  </head>
+  <body
+    style="
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+    "
+  >
+    <nav style="margin-bottom: 20px">
+      <a href="{% url 'add_movie' %}">Add Movie</a> |
+      <a href="{% url 'movie_list' %}">View All Movies</a> |
+      <a href="{% url 'search_movies' %}">Search</a>
+    </nav>
+    <h2>Add to mini-IMDB</h2>
+
+    <form method="POST" action="{% url 'add_movie' %}">
+      {% csrf_token %}
+
+      <div style="margin-bottom: 15px">
+        <label>Movie Name:</label><br />
+        <input
+          type="text"
+          name="name"
+          required
+          style="width: 100%; padding: 8px"
+        />
+      </div>
+
+      <div style="margin-bottom: 15px">
+        <label>Rating (out of 10):</label><br />
+        <input
+          type="number"
+          name="rating"
+          step="0.1"
+          min="0"
+          max="10"
+          required
+          style="width: 100%; padding: 8px"
+        />
+      </div>
+
+      <button
+        type="submit"
+        style="
+          padding: 10px 15px;
+          background: #f5c518;
+          border: none;
+          cursor: pointer;
+          font-weight: bold;
+        "
+      >
+        Save Movie
+      </button>
+    </form>
+  </body>
+</html>
