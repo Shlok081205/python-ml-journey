@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+        }
+        h2 {
+            color: #333;
+        }
+        /* Button Styling */
+        .btn-container {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #007BFF;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #343a40;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        /* Utility class to hide elements */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>University Directory</h2>
+
+    <div class="btn-container">
+        <button onclick="showTable('students')">Student Data</button>
+        <button onclick="showTable('hods')">HOD Data</button>
+    </div>
+
+    <table id="student-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Enrollment No.</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.enroll }}</td>
+                <td>{{ student.department.dept_name }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No student records found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table id="hod-table" class="hidden">
+        <thead>
+            <tr>
+                <th>Department Name</th>
+                <th>HOD Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dept in departments %}
+            <tr>
+                <td>{{ dept.dept_name }}</td>
+                <td>{{ dept.hod_name }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="2">No department records found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        function showTable(type) {
+            const studentTable = document.getElementById('student-table');
+            const hodTable = document.getElementById('hod-table');
+
+            if (type === 'students') {
+                studentTable.classList.remove('hidden');
+                hodTable.classList.add('hidden');
+            } else if (type === 'hods') {
+                hodTable.classList.remove('hidden');
+                studentTable.classList.add('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>
