@@ -17,12 +17,3 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from app_1.views import base, home_view,form,show_data
-
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", home_view, name="home"),          
-    path("base/", base, name="base_layout"),
-    path("form/", form, name="form_page"), # Added a name just in case
-    path("show_data/", show_data, name="show_data") # Add name="show_data" here
-]
